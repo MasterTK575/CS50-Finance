@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <div class="table-responsive">
+        <h2>Your Holdings</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Current Price</th>
+                    <th>TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for holding in holdings %}
+                <tr>
+                    <td>{{holding["symbol"]}}</td>
+                    <td>{{holding["name"]}}</td>
+                    <td>{{holding["shares"]}}</td>
+                    <td>{{holding["price"] | usd}}</td>
+                    <td>{{(holding["price"] * holding["shares"]) | usd}}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Holdings</td>
+                    <td>{{total_holdings | usd}}</td>
+                </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Cash</td>
+                <td>{{cash | usd}}</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>TOTAL</td>
+                <td>{{(cash + total_holdings) | usd}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

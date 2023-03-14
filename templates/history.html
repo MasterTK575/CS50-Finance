@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="table-responsive">
+        <h2>Your Transactions</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                    <td>{{transaction["symbol"]}}</td>
+                    <td>{{transaction["name"]}}</td>
+                    <td>{{transaction["type"]}}</td>
+                    <td>{{transaction["shares"]}}</td>
+                    <td>{{transaction["price"] | usd}}</td>
+                    <td>{{transaction["datetime"]}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
