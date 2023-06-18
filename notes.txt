@@ -2,4 +2,4 @@ Free account only available for 30 days.
 For it to work again, have to create new free account to get valid api key
 iexcloud.io/cloud-login#/register/
 
-export API_KEY=pk_1e45d6650d464c02a281b74b61ae40f3
+export API_KEY=pk_ca3c7902e29c4b019ab13404b246f2f9
